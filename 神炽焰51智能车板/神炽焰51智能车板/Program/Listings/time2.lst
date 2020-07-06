@@ -1,0 +1,141 @@
+C51 COMPILER V9.54   TIME2                                                                 05/08/2017 15:13:06 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TIME2
+OBJECT MODULE PLACED IN .\Objects\time2.obj
+COMPILER INVOKED BY: D:\softinstall\Keil_v5\C51\BIN\C51.EXE time2.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\time2.lst) TABS(2) OBJECT(.\Objects\time2.obj)
+
+line level    source
+
+   1          #include "time2.h"
+   2          #include "delay.h"
+   3          #include "direction.h"
+   4          #include <intrins.h>
+   5          sbit TRIG=P3^4;
+   6          sbit ECHO=P3^2;
+   7          sbit LED=P0^1;
+   8          extern unsigned int pwmc;//超声波舵机PWM控制
+   9          unsigned int distance=0;//超声波测距距离，单位cm
+  10          void Init_Time2(void)
+  11          {
+  12   1        RCAP2H=0x00;//T2定时器赋初值
+  13   1        RCAP2L=0x00;
+  14   1        EA=1;//开启总中断
+  15   1        ET2=1;// 定时器2中断打开
+  16   1        TR2=0;//定时器2停止 
+  17   1      }
+  18          
+  19          
+  20          void Time2Interrupt(void) interrupt 5
+  21          {
+  22   1        TF2=0;//TIM2需要软件清除标志位
+  23   1      
+  24   1      }
+  25          
+  26          void Init_Int0(void)//初始化外部中断INT0
+  27          {
+  28   1        EA=1;//总中断使能
+  29   1        EX0=1;//外部中断0使能
+  30   1        IT0=1;//下降沿触发外部中断0
+  31   1      }
+  32          
+  33          void Int0Interrupt(void) interrupt 0//外部中断0中断函数
+  34          {
+  35   1        TR2=0;//定时器2停止
+  36   1        distance=((TH2*256)+TL2)*0.01845;//距离单位cm，晶振11.0592MHZ
+  37   1        if(distance>400) distance=400;//限定距离最大值为400cm
+  38   1      }
+  39          
+  40          void Ultrasonic(void)//超声波测距
+  41          {
+  42   1        unsigned char i=0;
+  43   1        unsigned int ECHO_test=50000;//50ms时间内检测有无超声波信号返回
+  44   1        TH2=0x00;//T2定时器赋初值
+  45   1        TL2=0x00; 
+  46   1        TRIG=1;//发送10us高电平信号触发超声波
+  47   1        for(i;i<5;i++) _nop_();
+  48   1        TRIG=0;
+  49   1        while((!ECHO) && ECHO_test)
+  50   1        {
+  51   2          ECHO_test--;
+  52   2        }
+  53   1        if(ECHO_test) TR2=1;//定时器2开启
+  54   1        else distance=400;//若超声波无信号返回则判定为超出探测距离，直接赋值距离变量400cm。
+C51 COMPILER V9.54   TIME2                                                                 05/08/2017 15:13:06 PAGE 2   
+
+  55   1        ECHO_test=50000;
+  56   1        while(ECHO && ECHO_test)
+  57   1        {
+  58   2          ECHO_test--;
+  59   2        }
+  60   1      }
+  61          
+  62          void Ultra_Avo(void)//超声波壁障
+  63          {
+  64   1        /*中间与某一边小于30cm开始转弯*/
+  65   1        unsigned int distanceC,distanceA,distanceB;//定义三个方向的距离值，分别为中间，左边，右边
+  66   1        if(pwmc!=64600){pwmc=64600;LED=0;delay_ms(800);LED=1;}//舵机转到中间
+  67   1        Ultrasonic();//超声波测距
+  68   1        delay_ms(1);
+  69   1        distanceC=distance;
+  70   1        if(distanceC<=30)
+  71   1        {
+  72   2          Stop();
+  73   2          pwmc=65200;//舵机转到右边
+  74   2          LED=0;
+  75   2          delay_ms(800);
+  76   2          LED=1;
+  77   2          Ultrasonic();//超声波测距
+  78   2          delay_ms(2);
+  79   2          distanceB=distance;
+  80   2        
+  81   2          pwmc=63800;//舵机转到左边
+  82   2          LED=0;
+  83   2          delay_ms(1200);
+  84   2          LED=1;
+  85   2          Ultrasonic();//超声波测距
+  86   2          delay_ms(2);
+  87   2          distanceA=distance;
+  88   2        }
+  89   1      
+  90   1        if(distanceC>30)//判断前方距离是否大于30cm，如果是继续保持前行
+  91   1        {
+  92   2          Forward();
+  93   2        }
+  94   1        else if((distanceA >= distanceB)&&(distanceA>30))//否则判断左边距离是否大于等于右边且大于30cm，如果是左转
+             -一段时间后停下
+  95   1        {
+  96   2          Left();
+  97   2          delay_ms(200);
+  98   2          Stop();
+  99   2        }
+ 100   1        else if(distanceB>30)//否则判断右边是否大于30cm，如果是，右转一段时间后停下
+ 101   1        {
+ 102   2          Right();
+ 103   2          delay_ms(200);
+ 104   2          Stop();
+ 105   2        }
+ 106   1        else//否则后退一段时间停下
+ 107   1        {
+ 108   2          Back();
+ 109   2          delay_ms(200);
+ 110   2          Stop();
+ 111   2        }
+ 112   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.54   TIME2                                                                 05/08/2017 15:13:06 PAGE 3   
+
+   CODE SIZE        =    402    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

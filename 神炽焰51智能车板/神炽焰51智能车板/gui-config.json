@@ -1,0 +1,115 @@
+{
+	"HexControl" : {
+		"ControlIP" : "192.168.1.1",
+		"ControPort" : 2001,
+		"Video1" : "192.168.1.1:8080/?action=stream",
+		"Forward" : "FEEF000100",
+		"Left" : "FEEF000300",
+		"LeftForward" : "FEEF000300",
+		"LeftBack" : "FEEF000400",
+		"Right" : "FEEF000400",
+		"RightForward" : "FEEF000400",
+		"RightBack" : "FEEF000300",
+		"Back" : "FEEF000200",
+		"Stop" : "FEEF000000",
+		"LightON" : "FEEF010100",
+		"LightOFF" : "FEEF010000",
+		"SpeakON" : "FEEF020100",
+		"SpeakOFF" : "FEEF020000",
+		"LaserON" : "FEEF020100",
+		"LaserOFF" : "FEEF020000",
+		"RadarON" : "FEEF040100",
+		"RadarOFF" : "FEEF040000"
+	},
+	"Hotkey" : {
+		"Forward" : "W",
+		"Left" : "A",
+		"Right" : "D",
+		"Back" : "S",
+		"Stop" : null,
+		"Light" : "H",
+		"Speak" : null,
+		"Laser" : "J",
+		"Radar" : null,
+		"SpeedAdd" : "RIGHT",
+		"SpeedDec" : "LEFT",
+		"AngleXAdd" : null,
+		"AngleXDec" : null,
+		"AngleYAdd" : "UP",
+		"AngleYDec" : "DOWN"
+	},
+	"ADControl" : {
+		"Sleep" : "FEEF06",
+		"Speed" : "FEEF05",
+		"SpeedStep" : 100,
+		"SpeedMin" : 0,
+		"SpeedMax" : 1000,
+		"AngleX" : "FEEF06",
+		"AngleXStep" : 5,
+		"AngleXMin" : 63500,
+		"AngleXMax" : 65000,
+		"AngleY" : "FEEF07",
+		"AngleYStep" : 5,
+		"AngleYMin" : 63800,
+		"AngleYMax" : 65000
+	},
+	"rxcmd" : {
+		"Mark" : "FEEF",
+		"CarVoltage" : "01",
+		"CarSpeedLeft" : "02",
+		"CarSpeedRight" : "03",
+		"CarRadar" : "00"
+	},
+	"Customize" : [
+		{
+			"Name" : "自定义1：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义2：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义3：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义4：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义5：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义6：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义7：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义8：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义9：",
+			"HotKey" : "",
+			"SendHex" : ""
+		},
+		{
+			"Name" : "自定义10：",
+			"HotKey" : "",
+			"SendHex" : ""
+		}
+	]
+}

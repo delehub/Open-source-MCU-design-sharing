@@ -1,0 +1,12 @@
+..\OUTPUT\main.o: main.c
+..\OUTPUT\main.o: ..\CMSIS\stm32f10x.h
+..\OUTPUT\main.o: ..\CMSIS\core_cm3.h
+..\OUTPUT\main.o: D:\Keil\ARM\RV31\Inc\stdint.h
+..\OUTPUT\main.o: ..\CMSIS\system_stm32f10x.h
+..\OUTPUT\main.o: ..\USER\stm32f10x_conf.h
+..\OUTPUT\main.o: ..\FWlib\inc\stm32f10x_gpio.h
+..\OUTPUT\main.o: ..\CMSIS\stm32f10x.h
+..\OUTPUT\main.o: ..\FWlib\inc\stm32f10x_rcc.h
+..\OUTPUT\main.o: bujin_motor.h
+..\OUTPUT\main.o: delay.h
+..\OUTPUT\main.o: key.h

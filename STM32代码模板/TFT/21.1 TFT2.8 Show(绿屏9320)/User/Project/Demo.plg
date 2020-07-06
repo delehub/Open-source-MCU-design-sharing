@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\EX1.1 DEMO\User\Project\Demo.uvproj
+Project File Date:  12/29/2015
+
+<h2>Output:</h2>
+Build target 'Demo'
+compiling main.c...
+C:\Keil\ARM\Inc\ST\STM32F10x\stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+compiling stm32f10x_it.c...
+..\src\stm32f10x_it.c(24): error:  #5: cannot open source input file "stm32f10x_it.h": No such file or directory
+Target not created
+Build target 'Demo'
+compiling main.c...
+compiling stm32f10x_it.c...
+linking...
+.\obj\Demo.sct(7): error: L6236E: No section matches selector - no section to be FIRST/LAST.
+".\obj\Demo.axf" - 1 Error(s), 0 Warning(s).
+Build target 'Demo'
+compiling main.c...
+linking...
+.\obj\Demo.sct(7): error: L6236E: No section matches selector - no section to be FIRST/LAST.
+".\obj\Demo.axf" - 1 Error(s), 0 Warning(s).
+Build target 'Demo'
+compiling main.c...
+linking...
+.\obj\Demo.sct(7): error: L6236E: No section matches selector - no section to be FIRST/LAST.
+".\obj\Demo.axf" - 1 Error(s), 0 Warning(s).
+Build target 'Demo'
+compiling main.c...
+linking...
+.\obj\Demo.sct(7): error: L6236E: No section matches selector - no section to be FIRST/LAST.
+".\obj\Demo.axf" - 1 Error(s), 0 Warning(s).

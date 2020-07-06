@@ -1,0 +1,11 @@
+..\OUTPUT\key.o: key.c
+..\OUTPUT\key.o: key.h
+..\OUTPUT\key.o: ..\CMSIS\stm32f10x.h
+..\OUTPUT\key.o: ..\CMSIS\core_cm3.h
+..\OUTPUT\key.o: D:\Keil\ARM\RV31\Inc\stdint.h
+..\OUTPUT\key.o: ..\CMSIS\system_stm32f10x.h
+..\OUTPUT\key.o: ..\USER\stm32f10x_conf.h
+..\OUTPUT\key.o: ..\FWlib\inc\stm32f10x_gpio.h
+..\OUTPUT\key.o: ..\CMSIS\stm32f10x.h
+..\OUTPUT\key.o: ..\FWlib\inc\stm32f10x_rcc.h
+..\OUTPUT\key.o: delay.h

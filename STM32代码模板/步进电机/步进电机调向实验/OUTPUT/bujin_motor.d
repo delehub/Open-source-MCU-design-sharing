@@ -1,0 +1,11 @@
+..\OUTPUT\bujin_motor.o: bujin_motor.c
+..\OUTPUT\bujin_motor.o: bujin_motor.h
+..\OUTPUT\bujin_motor.o: ..\CMSIS\stm32f10x.h
+..\OUTPUT\bujin_motor.o: ..\CMSIS\core_cm3.h
+..\OUTPUT\bujin_motor.o: D:\Keil\ARM\RV31\Inc\stdint.h
+..\OUTPUT\bujin_motor.o: ..\CMSIS\system_stm32f10x.h
+..\OUTPUT\bujin_motor.o: ..\USER\stm32f10x_conf.h
+..\OUTPUT\bujin_motor.o: ..\FWlib\inc\stm32f10x_gpio.h
+..\OUTPUT\bujin_motor.o: ..\CMSIS\stm32f10x.h
+..\OUTPUT\bujin_motor.o: ..\FWlib\inc\stm32f10x_rcc.h
+..\OUTPUT\bujin_motor.o: delay.h

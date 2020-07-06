@@ -1,0 +1,33 @@
+C51 COMPILER V9.54   SPEED                                                                 03/29/2017 14:16:00 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SPEED
+OBJECT MODULE PLACED IN .\Objects\speed.obj
+COMPILER INVOKED BY: D:\softinstall\Keil_v5\C51\BIN\C51.EXE speed.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\speed.lst) TABS(2) OBJECT(.\Objects\speed.obj)
+
+line level    source
+
+   1          #include "speed.h"
+   2          unsigned int speedA,speedB,speedpulseA,speedpulseB;
+   3          void Speed(void)//利用定时器0中断，60ms计数一次转速
+   4          {                                                                                                         
+             -                                     
+   5   1        speedA=50*speedpulseA;
+   6   1        speedB=50*speedpulseB;
+   7   1        speedpulseA=speedpulseB=0;
+   8   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     36    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

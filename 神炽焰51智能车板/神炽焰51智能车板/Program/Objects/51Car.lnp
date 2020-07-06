@@ -1,0 +1,16 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\delay.obj",
+".\Objects\avoid.obj",
+".\Objects\buzzer.obj",
+".\Objects\direction.obj",
+".\Objects\int1.obj",
+".\Objects\time2.obj",
+".\Objects\track.obj",
+".\Objects\uart.obj",
+".\Objects\uartjudge.obj",
+".\Objects\radar.obj",
+".\Objects\time0.obj",
+".\Objects\pwm.obj" 
+TO ".\Objects\51Car" 
+PRINT(".\Listings\51Car.m51")

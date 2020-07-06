@@ -1,0 +1,2 @@
+1、D1_mini_Examples文件夹请放到Arduino IDE的Skechbook目录里，可在软件的file>>Preferences 查看目录的位置，放到Arduino 文件夹里；然后即可在软件的file>>Skechbooks打开相关程序编译及下载；相关连线请参考程序内容；
+2、请参照ESP8266系列开发板指引步骤配置好自己的Arduino IDE开发环境，资料包有给到部分开发常用的库文件，请参考；
